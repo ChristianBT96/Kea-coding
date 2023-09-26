@@ -170,20 +170,63 @@ console.log(hoursToSeconds)
 const words = ["apple", "banana", "cherry", "agøøørk","date", "fig", "grape", "kiwi", "lemon", "mango", "orange"];
 
 
+const filterLetters = (array, letter) => {
+    const wordFilter = array => array[0] === letter
+    console.log(array.filter(wordFilter))
+}
+filterLetters(words, "a");
 
+// 📝 Exercise 6 (advanced optional)
+// Write a function that takes an array of integers as parameter and filters all unique numbers. The function returns an array with only 1 entry of each unique number.
 
-let filterLetters = (wordArray, letter) => {
-    let firstLetter =
+const numbers6 = [1, 2, 3, 2, 4, 5, 6, 3, 7, 8, 9, 1, 10, 500];
+const numbers7 = [5,8,3,1,1,1,3,0,9,45,32,44,3,3]
+const filterUniqueInArray = (array) => {
+    let uniqueArray = array.filter((number, index) => {
+        return array.indexOf(number) === index;
+    })
+    console.log(uniqueArray)
+};
 
-    console.log(wordArray.filter(firstLetter))
+// Alt way (better?)
+const filterArrayUnique = (array) => {
+    console.log([... new Set(array)])
 }
 
-// filterLetters(words, "a"); //returns [apple, agøøørk]
+console.log(numbers6)
+filterUniqueInArray(numbers6)
+console.log(numbers7)
+filterUniqueInArray(numbers7)
+filterArrayUnique(numbers6)
+filterArrayUnique(numbers7)
 
+// 📝Exercise 7 (advanced optional)
+// Write a function that receives an array of cpr numbers.
+// The function will filter all cpr numbers that do not follow the following rules of a cpr number:
+// It should be 11 characters long
+// The first 2 indices cannot be higher than 31
+// The next 2 indices cannot be higher than 12
+// The next character should be a "-"
 
+const cprNumbersToTest = [
+    "121256-7890",
+    "987654-3210",
+    "1004890123",
+    "112233-44552",
+    "111244-556611",
+    "150690-3152asd",
+    "040396-1111"
+];
 
+const filterCprNumber = (cprArray) => {
+    let realCprNumbers
+    const cprRegEx = /^((((0[1-9]|[12][0-9]|3[01])(0[13578]|10|12)(\d{2}))|(([0][1-9]|[12][0-9]|30)(0[469]|11)(\d{2}))|((0[1-9]|1[0-9]|2[0-8])(02)(\d{2}))|((29)(02)(00))|((29)(02)([2468][048]))|((29)(02)([13579][26])))[-]\d{4})$/gm;
+    // RegEx found online
 
+    realCprNumbers = cprArray.filter(cpr => cprRegEx.test(cpr));
+    console.log(realCprNumbers)
+}
 
-
+filterCprNumber(cprNumbersToTest)
 
 
