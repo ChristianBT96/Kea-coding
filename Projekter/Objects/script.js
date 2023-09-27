@@ -140,12 +140,12 @@ const astronautsInSpace = {
 // Using the astronautsInSpace variable log out the following things
 
 // The number of astronauts in space right now
-console.log(astronautsInSpace.people) // All the people objects
-console.log(astronautsInSpace.people.length) // Amount of people in space (length of array)
+// console.log(astronautsInSpace.people) // All the people objects
+// console.log(astronautsInSpace.people.length) // Amount of people in space (length of array)
 
 // The name of the craft of the last person in the array
-console.log(astronautsInSpace.people[9]) // Array length is 10 = last person is at index 9
-console.log(astronautsInSpace.people[9].craft) // The craft part of the object
+// console.log(astronautsInSpace.people[9]) // Array length is 10 = last person is at index 9
+// console.log(astronautsInSpace.people[9].craft) // The craft part of the object
 
 // The lastname of the first astronaut in the ISS
 // // // First way to do it
@@ -177,4 +177,91 @@ console.log(astronautsInSpace.people[9].craft) // The craft part of the object
 // How should we improve it?
 // DONE IN CLASS
 
+// 📝 Exercise 7 - Please improve the following code
+// ORIGINAL CODE HERE:
+// function ChkPass(user_data) {
+//     if(user_data) data = JSON.parse(user_data);
+//     usr = data['user'];
+//     pw = data['password'];
+//     if(usr.length > 0 && pw.length > 0) {
+//         status = 'valid';
+//     }
+//     else {
+//         status = 'invalid';
+//     }
+//     alert('Status: ' + status);
+// }
+//
+// ChkPass('{"user": "test", "password": "1234"}');
+// IMPROVED CODE HERE:
+let testUser = '{"user": "test", "password": "1234"}';
+const checkIfUserIsValid = (userData) => {
 
+    const parsedUser = JSON.parse(userData)
+    const userDataParsedUser = parsedUser.user
+    const userDataParsedPassword = parsedUser.password
+
+    if (userDataParsedUser.length > 0 && userDataParsedPassword.length > 0) {
+        alert("valid")
+    } else {
+        alert("invalid")
+    }
+}
+
+// checkIfUserIsValid(testUser)
+
+
+// 📝 Hand-in - Individual
+// 1 - What to wear
+// Create a function (that you have to name) that has temperature as parameter.
+// Based on the temperature it should return a string with what the user should wear.
+// You decide what the user should wear based on the temperature.
+// An example is:
+// const clothesToWear = youCreateThisFunctionName(18);
+// console.log(clothesToWear); // Logs out: "shorts and a t-shirt"
+
+// // // SEE FUNCTIONS BASIC EXERCISE 9
+
+// 2 - Dice game 🎲
+// Write a function that simulates a die roll. You call the function with the number of times you would like to roll the dice.
+// Every time the dice hits a 6 log out You just hit 6!
+
+// 1. Make function to simulate a die roll, that will print "You just hit 6!" if it rolls a 6
+
+const generateRandomNumber = (min, max) => {                  //
+    return Math.floor((Math.random() * (max - min + 1)) + min)      // Generates random number between and including min and max: Math.random() * (max - min + 1)) + min)
+}
+
+const dieRoller = (timesThrow) => {
+
+    let dieResult = [];
+    for (let i = 0; i < timesThrow; i++) {
+        dieResult.push(generateRandomNumber(1,6));
+    }
+
+    dieResult.forEach((result) => {
+        if (result === 6)
+            console.log("You just hit 6!")
+    })
+}
+
+dieRoller(2)
+
+// Part 2
+// If the user hits 6 in every roll the log out Jackpot 🎉
+
+const dieRollerWithJackpot = (timesThrow) => {
+
+    let dieResult = [];
+    for (let i = 0; i < timesThrow; i++) {
+        dieResult.push(generateRandomNumber(1,6));
+    }
+
+    dieResult.forEach((result) => {
+        if (result === 6) {
+            console.log("You just hit 6!")
+        }
+    })
+}
+
+dieRollerWithJackpot(2)
