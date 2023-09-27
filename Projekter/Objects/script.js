@@ -41,7 +41,7 @@ console.log(kitten2)
 // console.log(kitten2["ageMonths"])
 // console.log(kitten2["isFemale"])
 // console.log(kitten2["furColour"])
-// Can use "variable.thing" method or "variable["thing"]"
+// Can use "object.key" method or "object["key"]"
 
 
 // 📝 Exercise 4 - level 1
