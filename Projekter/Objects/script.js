@@ -230,10 +230,8 @@ const checkIfUserIsValid = (userData) => {
 // // // SEE FUNCTIONS BASIC EXERCISE 9
 
 // 2 - Dice game 🎲
-// Write a function that simulates a die roll. You call the function with the number of times you would like to roll the dice.
+// Write a function that simulates a die roll. You call the function with the number of times you would like to roll the die.
 // Every time the dice hits a 6 log out You just hit 6!
-
-// 1. Make function to simulate a die roll, that will print "You just hit 6!" if it rolls a 6
 
 const generateRandomNumber = (min, max) => {                  //
     return Math.floor((Math.random() * (max - min + 1)) + min)      // Generates random number between and including min and max: Math.random() * (max - min + 1)) + min)
