@@ -37,6 +37,10 @@ let kitten2 = {
     furColour: "brown",
 };
 
+for(let property in kitten2) {
+    console.log(property + ": " + kitten2[property])
+}
+
 console.log(kitten2)
 // console.log(kitten2.ageMonths)
 // console.log(kitten2.isFemale)
@@ -44,7 +48,7 @@ console.log(kitten2)
 // console.log(kitten2["ageMonths"])
 // console.log(kitten2["isFemale"])
 // console.log(kitten2["furColour"])
-// Can use "object.key" method or "object["key"]"
+// Can use "object.key" method or "object["key"]" bracket notation can be used to access a key with a space in it
 
 
 // 📝 Exercise 4 - level 1
@@ -126,7 +130,7 @@ const astronautsInSpace = {
 // astronautsInSpace.people.forEach(person => {                            // "person"     = object within the astronautsInSpace.people array
 //     let isOnISS = false;
 //
-//     for (let astronaut in person) {                                     // "astronaut"  = holds the values of each person array while it iterates
+//     for (let astronaut in person) {                                     // "astronaut"  = holds the values of each person object while it iterates
 //         if (person.craft === "ISS") {
 //             isOnISS = true;
 //             console.log(astronaut + ": " + person[astronaut]);
