@@ -225,7 +225,7 @@ console.log(whatToWear(15))
 // const weekDays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 
 const getEventWeekDay = (daysFromNow) => {
-    const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     const currentDate = new Date(); // Gets todays date
     const currentDay = currentDate.getDay(); // gives the day number (monday = 1, tuesday = 2, ...) meaning this will always be a number between 1 and 7
     const weekDayIndex = (currentDay + daysFromNow) % weekDays.length; // If going backwards the result from this can be negative
@@ -243,7 +243,7 @@ const getEventWeekDay = (daysFromNow) => {
 
 };
 
-console.log(getEventWeekDay(14))
+console.log(getEventWeekDay(1))
 
 
 
