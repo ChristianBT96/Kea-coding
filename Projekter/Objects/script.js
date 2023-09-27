@@ -232,22 +232,22 @@ const generateRandomNumber = (min, max) => {                  //
     return Math.floor((Math.random() * (max - min + 1)) + min)      // Generates random number between and including min and max: Math.random() * (max - min + 1)) + min)
 }
 
-const dieRoller = (timesThrow) => {
+// const dieRoller = (timesThrow) => {
+//
+//     let dieResult = [];
+//     for (let i = 0; i < timesThrow; i++) {
+//         dieResult.push(generateRandomNumber(1,6));
+//     }
+//
+//     dieResult.forEach((result) => {
+//         if (result === 6)
+//             console.log("You just hit 6!")
+//     })
+// }
+//
+// dieRoller(2)
 
-    let dieResult = [];
-    for (let i = 0; i < timesThrow; i++) {
-        dieResult.push(generateRandomNumber(1,6));
-    }
-
-    dieResult.forEach((result) => {
-        if (result === 6)
-            console.log("You just hit 6!")
-    })
-}
-
-dieRoller(2)
-
-// Part 2
+// // // Part 2
 // If the user hits 6 in every roll the log out Jackpot 🎉
 
 const dieRollerWithJackpot = (timesThrow) => {
@@ -257,11 +257,16 @@ const dieRollerWithJackpot = (timesThrow) => {
         dieResult.push(generateRandomNumber(1,6));
     }
 
-    dieResult.forEach((result) => {
-        if (result === 6) {
-            console.log("You just hit 6!")
-        }
-    })
-}
+    const onlySix = [...new Set(dieResult)].sort();
+    if (onlySix[0] === 6) {
+        console.log("Jackpot");
+    } else {
+        dieResult.forEach((result) => {
+            if (result === 6) {
+                console.log(`You just hit 6!`);
+            }
+        });
+    }
+};
 
-dieRollerWithJackpot(2)
+dieRollerWithJackpot(5)
