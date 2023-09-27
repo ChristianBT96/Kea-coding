@@ -184,7 +184,66 @@ const dateConverter = function (date) {
     console.log(realDate)
 }
 
-dateConverter("04/03/1996")
+dateConverter("02/11/1996")
+
+
+// 📝 Exercise 9 (Advanced - optional)
+// Create a function (that you have to name) that has temperature as parameter.
+// Based on the temperature it should return a string with what the user should wear. You decide what the user should wear based on the temperature.
+// An example is:
+// const clothesToWear = youCreateThisFunctionName(18);
+// console.log(clothesToWear); // Logs out: "shorts and a t-shirt"
+
+const whatToWear = (temperature) => {
+    let message
+    if (temperature <= 10) {
+         message = " Wear a some warm clothes.";
+    } else if (temperature <= 20) {
+         message = " Wear pants and a t-shirt also bring a jacket.";
+    } else {
+         message = " Wear shorts and a t-shirt, it is hot.";
+    }
+
+    return `${temperature} degrees: ${message}`;
+}
+
+console.log(whatToWear(15))
+
+// 📝 Exercise 10 (Advanced - optional)
+// You specify how many days from today an event is being held. The function then figures out what weekday the event is being held. Here is an example:
+// Today is Sunday and the event is in 5 days. Therefore the event will be held on a friday.
+
+// // With todays weekday a tuesday
+// console.log(getEventWeekday(9)); // Logs out "Thursday"
+//
+// // With todays weekday a Friday
+// console.log(getEventWeekday(2)); // Logs out "Sunday"
+
+// You should get the today's day from the system.
+// Hint: use remainder operator, array indexes and investigate new Date in js.
+
+// const weekDays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+
+const getEventWeekDay = (daysFromNow) => {
+    const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    const currentDate = new Date(); // Gets todays date
+    const currentDay = currentDate.getDay(); // gives the day number (monday = 1, tuesday = 2, ...) meaning this will always be a number between 1 and 7
+    const weekDayIndex = (currentDay + daysFromNow) % weekDays.length; // If going backwards the result from this can be negative
+    const weekDayIndexMadePositive = (weekDayIndex + weekDays.length) % weekDays.length; //This ensures the result is always positive so it works
+
+    // ALT WAY to make the index positive
+    // let weekDayIndex = currentDay + daysFromNow;
+    // if (weekDayIndex < 0) {
+    //     weekDayIndex += weekDays.length;
+    // }
+    //
+    // return weekDays[weekDayIndex % weekDays.length]
+
+    return weekDays[weekDayIndexMadePositive];
+
+};
+
+console.log(getEventWeekDay(14))
 
 
 
