@@ -127,21 +127,21 @@ const astronautsInSpace = {
 }
 
 // NOTES FOR "for...in" LOOP
-// astronautsInSpace.people.forEach(person => {                            // "person"     = object within the astronautsInSpace.people array
-//     let isOnISS = false;
-//
-//     for (let astronaut in person) {                                     // "astronaut"  = holds the values of each person object while it iterates
-//         if (person.craft === "ISS") {
-//             isOnISS = true;
-//             console.log(astronaut + ": " + person[astronaut]);
-//         }
-//     }
-//
-//     if (!isOnISS) {                                                     // if (!isOnISS) = if it is false (same as if (isOnISS === false)
-//         console.log("Not on the ISS");
-//     }
-//
-// });
+astronautsInSpace.people.forEach(person => {                     // "person"     = object within the astronautsInSpace.people array
+    let craftIsISS = false;
+
+    for (let astronaut in person) {                                                      // "astronaut"  = holds the values of each person object while it iterates
+        if (person.craft === "ISS") {
+            craftIsISS = true;
+            console.log(astronaut + ": " + person[astronaut]);
+        }
+    }
+
+    if (!craftIsISS) {                                                                   // if (!craftIsISS) = if it is false (same as if (craftIsISS === false)
+        console.log("Not on the ISS");
+    }
+
+});
 
 
 // Using the astronautsInSpace variable log out the following things
@@ -379,11 +379,40 @@ const sentimentAnalyser2 = (string) => {
 // What should happen if the function is called with an argument that is not a number?
 
 
+const creditCardChecker = (creditCardNumber) => {
 
+    const creditCardRegExp = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
+    // RegExp found online here: https://stackoverflow.com/questions/9315647/regex-credit-card-number-tests
+    // DISCLAIMER: it is not good to use RegExp for cc numbers, other and better solutions exist.
+    const creditCardNumberToString = creditCardNumber.toString();
+    let formattedNumber = creditCardNumberToString.substring(0,3) + " " + creditCardNumberToString.substring(4,7) + " " + creditCardNumberToString.substring(8,11) + " " + creditCardNumberToString.substring(12,15);
 
+    if (creditCardRegExp.test(creditCardNumberToString)) {
+        let result = {
+            original: creditCardNumber,
+            formatted: formattedNumber
+        };
+        console.log(result);
+    } else {
+        console.log("That is not a valid/accepted credit card number");
+    }
 
+}
 
+const testCCNumber1 = "4012888888881881"
+const testCCNumber12 = "4012-8888-8888-1881"
+const testCCNumber2 = "4222222222222"
+const testCCNumber3 = "4222222222222"
+const testCCNumber4 = 4012888888881881
+const testCCNumber5 = 1234567890123456
 
+creditCardChecker(testCCNumber1)
+creditCardChecker(testCCNumber12)
+creditCardChecker(testCCNumber2)
+creditCardChecker(testCCNumber3)
+creditCardChecker(testCCNumber4)
+creditCardChecker(testCCNumber5)
+creditCardChecker("Do you take master card?")
 
 
 
