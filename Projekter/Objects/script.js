@@ -127,21 +127,21 @@ const astronautsInSpace = {
 }
 
 // NOTES FOR "for...in" LOOP
-astronautsInSpace.people.forEach(person => {                     // "person"     = object within the astronautsInSpace.people array
-    let craftIsISS = false;
-
-    for (let astronaut in person) {                                                      // "astronaut"  = holds the values of each person object while it iterates
-        if (person.craft === "ISS") {
-            craftIsISS = true;
-            console.log(astronaut + ": " + person[astronaut]);
-        }
-    }
-
-    if (!craftIsISS) {                                                                   // if (!craftIsISS) = if it is false (same as if (craftIsISS === false)
-        console.log("Not on the ISS");
-    }
-
-});
+// astronautsInSpace.people.forEach(person => {                     // "person"     = object within the astronautsInSpace.people array
+//     let craftIsISS = false;
+//
+//     for (let astronaut in person) {                                                      // "astronaut"  = holds the values of each person object while it iterates
+//         if (person.craft === "ISS") {
+//             craftIsISS = true;
+//             console.log(astronaut + ": " + person[astronaut]);
+//         }
+//     }
+//
+//     if (!craftIsISS) {                                                                   // if (!craftIsISS) = if it is false (same as if (craftIsISS === false)
+//         console.log("Not on the ISS");
+//     }
+//
+// });
 
 
 // Using the astronautsInSpace variable log out the following things
@@ -205,6 +205,7 @@ let testUser = '{"user": "test", "password": "1234"}';
 const checkIfUserIsValid = (userData) => {
 
     const parsedUser = JSON.parse(userData)
+
     const userDataParsedUser = parsedUser.user
     const userDataParsedPassword = parsedUser.password
 
@@ -233,24 +234,24 @@ const checkIfUserIsValid = (userData) => {
 // Write a function that simulates a die roll. You call the function with the number of times you would like to roll the die.
 // Every time the dice hits a 6 log out You just hit 6!
 
-const generateRandomNumber = (min, max) => {                  //
+const getRandomNumber = (min, max) => {                  //
     return Math.floor((Math.random() * (max - min + 1)) + min)      // Generates random number between and including min and max: Math.random() * (max - min + 1)) + min)
 }
 
-// const dieRoller = (timesThrow) => {
-//
-//     let dieResult = [];
-//     for (let i = 0; i < timesThrow; i++) {
-//         dieResult.push(generateRandomNumber(1,6));
-//     }
-//
-//     dieResult.forEach((result) => {
-//         if (result === 6)
-//             console.log("You just hit 6!")
-//     })
-// }
-//
-// dieRoller(2)
+const dieRoller = (timesThrow) => {
+
+    let dieResult = [];
+    for (let i = 0; i < timesThrow; i++) {
+        dieResult.push(getRandomNumber(1,6));
+    }
+
+    dieResult.forEach((result) => {
+        if (result === 6)
+            console.log("You just hit 6!")
+    })
+}
+
+dieRoller(2)
 
 // // // Part 2 // // //
 // If the user hits 6 in every roll the log-out Jackpot 🎉
@@ -259,7 +260,7 @@ const dieRollerWithJackpot = (timesThrow) => {
 
     let dieResult = [];
     for (let i = 0; i < timesThrow; i++) {
-        dieResult.push(generateRandomNumber(1,6));
+        dieResult.push(getRandomNumber(1,6));
     }
 
     const onlySix = [...new Set(dieResult)].sort();
@@ -362,7 +363,51 @@ const sentimentAnalyser2 = (string) => {
     console.log(result)
 }
 
-// // // 4 - Credit card number formatter - optional // // //
+
+// // // 4 - Character frequencies - optional // // //
+// Write a function that counts the frequency of characters in a string:
+// console.log(getCharacterFrequencies('happy'));
+/*
+{
+  characters: [
+    {
+      character: 'a',
+      count: 1
+    },
+    {
+      character: 'h',
+      count: 1
+    },
+    {
+      character: 'p',
+      count: 2
+    },
+    {
+      character: 'y',
+      count: 1
+    }
+  ], length: 5
+}
+*/
+
+
+
+
+const getCharacterFrequencies = (string) => {
+
+    const stringToArray = string.split("");
+
+    let uniqueCharacters = [... new Set(stringToArray)]
+
+    return uniqueCharacters
+}
+
+console.log(getCharacterFrequencies("Hello World"))
+
+
+
+
+// // // 5 - Credit card number formatter - optional // // //
 // This is a very real world example of a problem i got at my previous work.
 // I was tasked to implement one of the smart credit card input fields, where the credit card numbers are seperated with a space.
 // Fx inputting 123456789 would show 1234 5678 9.
