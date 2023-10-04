@@ -406,6 +406,8 @@ const getCharacterFrequencies = (string) => {
         // Make individual letters lower case to avoid repeats of letters.
         const alreadyInCharacters = charactersOfString.characters.find(element => element.character === lowerCaseLetter);
         // Define a variable that stores the first element in an array it finds that satisfy the callback function.
+        // In this case we are using it on the array in "characters" inside the "charactersOfString" object.
+        // So the referred to element is actually the individual letter object.
         // If the callback function in .find() is not satisfied (it didn't find a matching letter in this case) it will become undefined i.e. it becomes "falsy"
         // If it does find what it is looking for it becomes that element of the array
 
