@@ -395,15 +395,34 @@ const sentimentAnalyser2 = (string) => {
 
 const getCharacterFrequencies = (string) => {
 
-    const stringToArray = string.split("");
+    const stringArray = string.split("");
+    // Start by splitting the string into an array of separate letters.
+    const charactersOfString = {characters:[], length:string.length};
+    // Make an empty object with an array of character objects and the length of the given string, this serves to store the individual letter objects
 
-    let uniqueCharacters = [... new Set(stringToArray)]
+    for (let letter of stringArray) {
+        // Use "for of" loop to iterate over every element of the character array.
+        const lowerCaseLetter = letter.toLowerCase();
+        // Make individual letters lower case to avoid repeats of letters.
+        const alreadyInCharacters = charactersOfString.characters.find(element => element.character === lowerCaseLetter);
+        // Define a variable that stores the first element in an array it finds that satisfy the callback function.
+        // If the callback function in .find() is not satisfied (it didn't find a matching letter in this case) it will become undefined i.e. it becomes "falsy"
+        // If it does find what it is looking for it becomes that element of the array
 
-    return uniqueCharacters
-}
+        if (alreadyInCharacters) {
+            // In this case if the "if" is true we increment the count by one
+            alreadyInCharacters.count += 1;
+        } else {
+            // This will run in case we have not found the letter in the array "charactersOfString" and add the letter as an object with a count of 1.
+            charactersOfString.characters.push({ character: lowerCaseLetter, count: 1});
+        }
 
-console.log(getCharacterFrequencies("Hello World"))
+    }
 
+    console.log(charactersOfString);
+};
+
+getCharacterFrequencies("Hello world")
 
 
 
