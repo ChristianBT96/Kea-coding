@@ -8,6 +8,8 @@
     margin: 0;
 }
 
+/* DONE */
+
 /*  */
 
 .click-container{
@@ -17,6 +19,35 @@
     justify-content: center;
     height: 50vh;
 }
+
+/* DONE */
+
+
+/* Generate Click Button */
+
+.main-click {
+    opacity: 1 !important;
+}
+
+/* DONE */
+
+
+button {
+    margin: 5px;
+    height: 40px;
+    width: 100px;
+    opacity: 0.5;
+}
+
+
+/* Upgrades Unlock Button */
+
+.upgrades-unlock {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* DONE */
 
 
 
