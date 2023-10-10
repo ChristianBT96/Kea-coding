@@ -22,9 +22,10 @@ const unlockUpgradesButton = document.querySelector(".upgrades-unlock");
 // Function to make upgrade button visible when credits are above 30 //
 const upgradeButtonUnlock = () => {
     if (creditAmount >= 5) {
-        unlockUpgradesButton.style.opacity = 1;
+        unlockUpgradesButton.style.opacity = "1";
         unlockUpgradesButton.style.cursor = "pointer";
         unlockUpgradesButton.style.pointerEvents = "auto";
+        unlockUpgradesButton.style.transition = "all 0.3s ease-in-out";
     }
 }
 
@@ -64,8 +65,6 @@ const upgradeDiv = document.querySelector(".upgrades");
 
 
 unlockUpgradesButton.addEventListener("click", () => {
-
-
     if (creditAmount >= 5) {
         const upgradeH2 = document.createElement("h2");
         upgradeH2.textContent = "Upgrades:";
@@ -87,7 +86,7 @@ unlockUpgradesButton.addEventListener("click", () => {
             upgradeButton.style.opacity = "0.5";
             upgradeButton.style.pointerEvents = "none";
             upgradeButton.textContent = upgrade.name;
-            upgradeButton.classList.add(`upgrade-button`);
+            upgradeButton.classList.add("upgrade-button", index);
             upgradeDiv.append(upgradeButton);
         });
 
@@ -96,31 +95,28 @@ unlockUpgradesButton.addEventListener("click", () => {
 
 
     }
+
 });
-
-
-
-
 
 //  DONE //
 
-// // // Button listener // // //
-
+// // // Upgrade button listener // // //
 // Create button listener //
 
-const getButtons = document.querySelectorAll(".upgrade-button");
-const upgradePrice = document.querySelectorAll("p:nth-child(2)");
-console.log(upgradePrice);
-
-// const fadeButtons = () => {
-//     getButtons.forEach((button) => {
-//         if () {
+// const getButtons = document.querySelectorAll(".upgrade-button");
+//
+// const fadeButtonsIn = () => {
+//     getButtons.forEach((button, index) => {
+//
+//         const upgrade = upgradeObjects.Upgrades[index];
+//         if (creditAmount >= upgrade.price) {
 //             button.style.opacity = 1;
 //             button.style.pointerEvents = "auto";
 //         }
 //     });
 // };
-// setInterval(fadeButtons, 500);
+//
+// setInterval(fadeButtonsIn, 100);
 
 // DONE //
 
@@ -128,13 +124,6 @@ console.log(upgradePrice);
 
 // // //  // // //
 
-
-//
-// upgradeDiv.style.display = "flex";
-// upgradeDiv.style.flexDirection = "column";
-// upgradeDiv.style.justifyContent = "space-evenly";
-// upgradeDiv.style.flexWrap = "wrap";
-// upgradeDiv.style.alignItems = "center";
 
 
 
