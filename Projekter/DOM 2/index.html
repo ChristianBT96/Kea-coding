@@ -4,18 +4,38 @@
     <meta charset="UTF-8">
     <title>Credit Clicker</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
 </head>
+<header>
 
+</header>
 
 <body>
+    <h1>Credit Clicker Corp.</h1>
 
-    <div class="credit-display">You have <span class="credit-counter">0</span> Credits</div>
+    <div class="click-container">
+        <p>Credits: <span class="credit-count">0</span></p>
 
-    <button class="main-click">Generate Credit</button>
+        <button class="main-click">Generate Credits!</button>
+    </div>
 
-
+    <div class="upgrades">
+        Upgrades:
+        <ul>
+            <li>
+                <button class="upgrade" data-cost="10" data-multiplier="2">Double Clicks</button>
+            </li>
+            <li>
+                <button class="upgrade" data-cost="100" data-multiplier="5">Five Times Clicks</button>
+            </li>
+            <li>
+                <button class="upgrade" data-cost="1000" data-multiplier="10">Ten Times Clicks</button>
+            </li>
+        </ul>
+    </div>
 
 </body>
+
+<script src="script.js"></script>
+
 
 </html>

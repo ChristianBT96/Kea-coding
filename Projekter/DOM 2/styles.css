@@ -1,7 +1,28 @@
 
+/* GENERAL STYLING */
+
+* {
+    text-align: center;
+    outline: black dashed 1px;
+    padding: 0;
+    margin: 0;
+}
+
+/*  */
+
+.click-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
 
 
 
+.upgrade ul {
+    list-style: none;
+}
 
 
 
