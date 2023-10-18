@@ -78,6 +78,7 @@ header  {
     /*outline: red solid 1px;*/
     text-align: center;
     transition: 0.5s;
+    user-select: none;
 }
 
 .input:hover {
