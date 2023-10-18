@@ -5,7 +5,7 @@ const clickButton = document.querySelector(".main-click");
 const creditCount = document.querySelector(".credit-count");
 let creditAmount = parseInt(creditCount.textContent, 10);
 
-// Add 1 credit to credit count when button is clicked //
+// Add 1 credit (before upgrades) to credit count when button is clicked //
 clickButton.addEventListener("click", () => {
     creditAmount += 1;
     creditCount.textContent = creditAmount;
