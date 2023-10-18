@@ -2,39 +2,32 @@
 
 
 
-
 // // // // Input Fields // // // //
 
 // 1. Get the input field
-const field1 = document.querySelector('#field-1');
-const field2 = document.querySelector('#field-2');
-const field3 = document.querySelector('#field-3');
-const field4 = document.querySelector('#field-4');
-const field5 = document.querySelector('#field-5');
-const field6 = document.querySelector('#field-6');
-const field7 = document.querySelector('#field-7');
-const field8 = document.querySelector('#field-8');
-const field9 = document.querySelector('#field-9');
+const inputs = document.querySelectorAll('.input');
+const playerTurn = document.querySelector('.player-turn');
 
-field1.addEventListener('click', () => {
-    if (field1.innerHTML === "") {
-      field1.innerHTML = 'X';
-    } else if (field1.innerHTML === "X") {
-      field1.innerHTML = 'O';
-    } else {
-      field1.innerHTML = "";
+
+let playerOneTurn = true;
+inputs.forEach((input) => {
+  input.addEventListener('click', () => {
+
+
+    if (playerOneTurn) {
+      input.innerHTML = 'X';
+      playerOneTurn = false;
+      playerTurn.innerHTML = "Player 2's turn!";
+    } else if (!playerOneTurn) {
+      input.innerHTML = 'O';
+      playerOneTurn = true;
+      playerTurn.innerHTML = "Player 1's turn!";
     }
+  })
 });
 
-field2.addEventListener('click', () => {
-    if (field2.innerHTML === "") {
-      field2.innerHTML = 'X';
-    } else if (field2.innerHTML === "X") {
-      field2.innerHTML = 'O';
-    } else {
-      field2.innerHTML = "";
-    }
-});
+
+
 
 // // // // // // // //
 
@@ -67,7 +60,7 @@ close.addEventListener("click", () => {
 });
 
 window.addEventListener("click", (event) => {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 });

@@ -79,6 +79,7 @@ header  {
     text-align: center;
     transition: 0.5s;
     user-select: none;
+    font-size: 6.7rem;
 }
 
 .input:hover {
@@ -115,9 +116,9 @@ header  {
 }
 
 .close {
-color: #aaaaaa;
+    color: #aaaaaa;
     float: right;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
 }
 
