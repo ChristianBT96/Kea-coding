@@ -58,7 +58,10 @@ header  {
     width: 60vh;
     padding: 2vh 2vh 0 2vh;
     background-color: #333333;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    box-shadow: 7px 6px 20px -2px rgba(0,0,0,0.63);
+    -webkit-box-shadow: 7px 6px 20px -2px rgba(0,0,0,0.63);
+    -moz-box-shadow: 7px 6px 20px -2px rgba(0,0,0,0.63);
 }
 /*-------------------------------------*/
 
@@ -72,7 +75,7 @@ header  {
     position: relative;
     height: 18vh;
     width: 18vh;
-    outline: red solid 1px;
+    /*outline: red solid 1px;*/
     text-align: center;
     transition: 0.5s;
 }
