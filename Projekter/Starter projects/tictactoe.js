@@ -1,5 +1,10 @@
 
 
+// // // // Game Board // // // //
+
+let gameBoard = [0,0,0,0,0,0,0,0,0]
+
+// // // // // // // //
 
 
 // // // // Input Fields // // // //
@@ -32,6 +37,19 @@ inputs.forEach((input) => {
 // // // // // // // //
 
 
+// // // // Win Conditions // // // //
+
+const haveWon = () => {
+
+  let winOneH = gameBoard[0] + gameBoard[1] + gameBoard[2];
+
+  let winTwoH = gameBoard[3] + gameBoard[4] + gameBoard[5];
+
+  let winThreeH = gameBoard[6] + gameBoard[7] + gameBoard[8];
+
+
+
+};
 
 // // // // // // // //
 
