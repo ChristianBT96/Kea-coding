@@ -78,9 +78,9 @@ const haveWon = () => {
 
 
 
-// // // // MODAL // // // //
+// // // // RULES MODAL // // // //
 //  Get the modal
-const modal = document.querySelector('.modal');
+const rulesModal = document.querySelector('.rules-modal');
 // Get the button that opens the modal
 const rules = document.querySelector('.rules');
 // Get the <span> element that closes the modal
@@ -88,22 +88,41 @@ const close = document.querySelector('.close');
 
 // When the user clicks on the button, open the modal
 rules.addEventListener("click", () => {
-  modal.style.display = "block";
+  rulesModal.style.display = "block";
 });
 
 // When the user clicks on <span> (x), close the modal
 close.addEventListener("click", () => {
-  modal.style.display = "none";
+  rulesModal.style.display = "none";
 });
 
 window.addEventListener("click", (event) => {
-  if (event.target === modal) {
-    modal.style.display = "none";
+  if (event.target === rulesModal) {
+    rulesModal.style.display = "none";
   }
 });
+
+
+
 // // // // DONE // // // //
 
 
+// // // // INTRO MODAL // // // //
+
+const introModal = document.querySelector('.intro-modal');
+
+const onePlayer = document.querySelector('#one-player');
+
+const twoPlayer = document.querySelector('#two-players');
 
 
+onePlayer.addEventListener("click", () => {
+    introModal.style.display = "none";
+});
+
+twoPlayer.addEventListener("click", () => {
+    introModal.style.display = "none";
+});
+
+// // // // DONE // // // //
 
