@@ -2,7 +2,7 @@
 
 // // // // Game Board // // // //
 
-let gameBoard = [0,0,0,0,0,0,0,0,0]
+let gameBoard = [0,0,0,0,0,0,0,0,0];
 
 // // // // // // // //
 
@@ -15,7 +15,7 @@ const playerTurn = document.querySelector('.player-turn');
 
 
 let playerOneTurn = true;
-inputs.forEach((input) => {
+inputs.forEach((input, index) => {
   input.addEventListener('click', () => {
 
 
@@ -23,11 +23,17 @@ inputs.forEach((input) => {
       input.innerHTML = 'X';
       playerOneTurn = false;
       playerTurn.innerHTML = "Player 2's turn!";
+      gameBoard[index] = 1;
+      haveWon()
     } else if (!playerOneTurn) {
       input.innerHTML = 'O';
       playerOneTurn = true;
       playerTurn.innerHTML = "Player 1's turn!";
+      gameBoard[index] = -1;
+      haveWon()
     }
+
+
   })
 });
 
@@ -47,8 +53,21 @@ const haveWon = () => {
 
   let winThreeH = gameBoard[6] + gameBoard[7] + gameBoard[8];
 
+  let winOneL = gameBoard[0] + gameBoard[3] + gameBoard[6];
 
+  let winTwoL = gameBoard[1] + gameBoard[4] + gameBoard[7];
 
+  let winThreeL = gameBoard[2] + gameBoard[5] + gameBoard[8];
+
+  let winOneD = gameBoard[0] + gameBoard[4] + gameBoard[8];
+
+  let winTwoD = gameBoard[2] + gameBoard[4] + gameBoard[6];
+
+    if (winOneH === 3 || winTwoH === 3 || winThreeH === 3 || winOneL === 3 || winTwoL === 3 || winThreeL === 3 || winOneD === 3 || winTwoD === 3) {
+        console.log('Player 1 wins!');
+    } else if (winOneH === -3 || winTwoH === -3 || winThreeH === -3 || winOneL === -3 || winTwoL === -3 || winThreeL === -3 || winOneD === -3 || winTwoD === -3) {
+      console.log('Player 2 wins!');
+    }
 };
 
 // // // // // // // //
