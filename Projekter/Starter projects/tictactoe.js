@@ -2,7 +2,7 @@
 
 // // // // Game Board // // // //
 
-let gameBoard = [0,0,0,0,0,0,0,0,0];
+let gameBoardArray = [0,0,0,0,0,0,0,0,0];
 
 // // // // // // // //
 
@@ -17,32 +17,32 @@ const playerTwoScoreBoard = document.querySelector('.player-two-score');
 
 // // // // // // // //
 
+
 // // // // Win Conditions // // // //
 
-const haveWon = () => {
+const isThereAWinner = () => {
 
-    let winOneH = gameBoard[0] + gameBoard[1] + gameBoard[2];
+    let winOneH = gameBoardArray[0] + gameBoardArray[1] + gameBoardArray[2];
 
-    let winTwoH = gameBoard[3] + gameBoard[4] + gameBoard[5];
+    let winTwoH = gameBoardArray[3] + gameBoardArray[4] + gameBoardArray[5];
 
-    let winThreeH = gameBoard[6] + gameBoard[7] + gameBoard[8];
+    let winThreeH = gameBoardArray[6] + gameBoardArray[7] + gameBoardArray[8];
 
-    let winOneL = gameBoard[0] + gameBoard[3] + gameBoard[6];
+    let winOneL = gameBoardArray[0] + gameBoardArray[3] + gameBoardArray[6];
 
-    let winTwoL = gameBoard[1] + gameBoard[4] + gameBoard[7];
+    let winTwoL = gameBoardArray[1] + gameBoardArray[4] + gameBoardArray[7];
 
-    let winThreeL = gameBoard[2] + gameBoard[5] + gameBoard[8];
+    let winThreeL = gameBoardArray[2] + gameBoardArray[5] + gameBoardArray[8];
 
-    let winOneD = gameBoard[0] + gameBoard[4] + gameBoard[8];
+    let winOneD = gameBoardArray[0] + gameBoardArray[4] + gameBoardArray[8];
 
-    let winTwoD = gameBoard[2] + gameBoard[4] + gameBoard[6];
+    let winTwoD = gameBoardArray[2] + gameBoardArray[4] + gameBoardArray[6];
 
     if (winOneH === 3 || winTwoH === 3 || winThreeH === 3 || winOneL === 3 || winTwoL === 3 || winThreeL === 3 || winOneD === 3 || winTwoD === 3) {
         return 1;
     } else if (winOneH === -3 || winTwoH === -3 || winThreeH === -3 || winOneL === -3 || winTwoL === -3 || winThreeL === -3 || winOneD === -3 || winTwoD === -3) {
         return -1;
     }
-
 
 };
 
@@ -55,46 +55,45 @@ const haveWon = () => {
 const inputs = document.querySelectorAll('.input');
 const playerTurn = document.querySelector('.player-turn');
 
-
 let playerOneTurn = true;
 inputs.forEach((input, index) => {
   input.addEventListener('click', () => {
 
 
-      if (gameBoard[index] !== 0) {
+      if (gameBoardArray[index] !== 0) {
           return;
       }
 
     if (playerOneTurn) {
-        input.innerHTML = 'X';
+        input.innerHTML = "X";
         playerOneTurn = false;
         playerTurn.innerHTML = `${playerTwo.innerHTML}'s turn!`
-        gameBoard[index] = 1;
+        gameBoardArray[index] = 1;
     } else if (!playerOneTurn) {
-        input.innerHTML = 'O';
+        input.innerHTML = "O";
         playerOneTurn = true;
         playerTurn.innerHTML = `${playerOne.innerHTML}'s turn!`;
-        gameBoard[index] = -1;
+        gameBoardArray[index] = -1;
     }
 
-    if (haveWon() === 1) {
+    if (isThereAWinner() === 1) {
         playerOneTurn = true;
         playerOneScore += 1;
         playerOneScoreBoard.innerHTML = playerOneScore;
-            inputs.forEach((input) => {
-                input.innerHTML = "";
-            });
-        playerTurn.innerHTML = `${playerOne.innerHTML}'s turn!`
-        gameBoard = [0,0,0,0,0,0,0,0,0];
-    } else if (haveWon() === -1) {
+        inputs.forEach((input) => {
+            input.innerHTML = "";
+        });
+        playerTurn.innerHTML = `${playerOne.innerHTML}'s turn!`;
+        gameBoardArray = [0,0,0,0,0,0,0,0,0];
+    } else if (isThereAWinner() === -1) {
         playerOneTurn = true;
         playerTwoScore += 1;
         playerTwoScoreBoard.innerHTML = playerTwoScore;
         inputs.forEach((input) => {
             input.innerHTML = "";
         });
-        playerTurn.innerHTML = `${playerOne.innerHTML}'s turn!`
-        gameBoard = [0,0,0,0,0,0,0,0,0];
+        playerTurn.innerHTML = `${playerOne.innerHTML}'s turn!`;
+        gameBoardArray = [0,0,0,0,0,0,0,0,0];
     }
 
   })
@@ -130,8 +129,6 @@ window.addEventListener("click", (event) => {
   }
 });
 
-
-
 // // // // DONE // // // //
 
 
@@ -142,8 +139,6 @@ const introModal = document.querySelector('.intro-modal');
 const onePlayer = document.querySelector('#one-player');
 
 const twoPlayer = document.querySelector('#two-players');
-
-
 
 onePlayer.addEventListener("click", () => {
     alert('Only two player mode is available');
@@ -159,7 +154,7 @@ twoPlayer.addEventListener("click", () => {
 // // // // DONE // // // //
 
 
-// // // // NAME INPUT MODAL // // // //
+// // // // NAME INPUT MODAL AND START BUTTON// // // //
 
 const nameInputModal = document.querySelector('.names-modal');
 
@@ -198,6 +193,7 @@ startButton.addEventListener("click", () => {
     playerTwoScoreTrack.style.display = "block";
 
     nameInputModal.style.display = "none";
+
 });
 
 // // // // DONE // // // //
@@ -234,7 +230,7 @@ resetButton.addEventListener("click", () => {
     playerOneTurn = true;
     playerTurn.innerHTML = `${playerOne.innerHTML}'s turn!`;
 
-    gameBoard = [0,0,0,0,0,0,0,0,0];
+    gameBoardArray = [0,0,0,0,0,0,0,0,0];
 
 });
 
@@ -250,4 +246,17 @@ newPlayersButton.addEventListener("click", () => {
 });
 
 // // // // DONE // // // //
+
+
+// // // // NEW PLAYERS BUTTON // // // //
+
+
+const everything = document.querySelectorAll("*")
+
+everything.style.color = "red";
+
+// // // // DONE // // // //
+
+
+
 
