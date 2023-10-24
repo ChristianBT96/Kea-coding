@@ -24,13 +24,21 @@ inputs.forEach((input, index) => {
       playerOneTurn = false;
       playerTurn.innerHTML = "Player 2's turn!";
       gameBoard[index] = 1;
-      haveWon()
+        if (haveWon()) {
+          inputs.forEach((input) => {
+            input.innerHTML = '';
+          });
+        }
     } else if (!playerOneTurn) {
       input.innerHTML = 'O';
       playerOneTurn = true;
       playerTurn.innerHTML = "Player 1's turn!";
       gameBoard[index] = -1;
-      haveWon()
+        if (haveWon()) {
+          inputs.forEach((input) => {
+            input.innerHTML = '';
+          });
+        }
     }
 
 
@@ -43,8 +51,20 @@ inputs.forEach((input, index) => {
 // // // // // // // //
 
 
+// // // // Keep Score // // // //
+
+let playerOneScore = 0;
+let playerTwoScore = 0;
+
+const playerOneScoreBoard = document.querySelector('.player-one-score');
+const playerTwoScoreBoard = document.querySelector('.player-two-score');
+
+// // // // // // // //
+
+
 // // // // Win Conditions // // // //
 
+let isThereAWinner = false;
 const haveWon = () => {
 
   let winOneH = gameBoard[0] + gameBoard[1] + gameBoard[2];
@@ -65,16 +85,20 @@ const haveWon = () => {
 
     if (winOneH === 3 || winTwoH === 3 || winThreeH === 3 || winOneL === 3 || winTwoL === 3 || winThreeL === 3 || winOneD === 3 || winTwoD === 3) {
         console.log('Player 1 wins!');
+        playerOneScore += 1;
+        playerOneScoreBoard.innerHTML = playerOneScore;
+        gameBoard = [0,0,0,0,0,0,0,0,0];
     } else if (winOneH === -3 || winTwoH === -3 || winThreeH === -3 || winOneL === -3 || winTwoL === -3 || winThreeL === -3 || winOneD === -3 || winTwoD === -3) {
-      console.log('Player 2 wins!');
+        console.log('Player 2 wins!');
+        playerTwoScore += 1;
+        playerTwoScoreBoard.innerHTML = playerTwoScore;
+        gameBoard = [0,0,0,0,0,0,0,0,0];
     }
 };
 
 // // // // // // // //
 
 
-
-// // // // // // // //
 
 
 
@@ -116,11 +140,17 @@ const onePlayer = document.querySelector('#one-player');
 const twoPlayer = document.querySelector('#two-players');
 
 
+
+
+
+
 onePlayer.addEventListener("click", () => {
     introModal.style.display = "none";
 });
 
 twoPlayer.addEventListener("click", () => {
+    const playerOneName = prompt("Player 1, please enter your name.");
+    const playerTwoName = prompt("Player 2, please enter your name.");
     introModal.style.display = "none";
 });
 
