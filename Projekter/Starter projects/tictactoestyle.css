@@ -167,7 +167,10 @@ h1 {
     text-align: center;
     transition: 0.5s;
     user-select: none;
-    font-size: 6.8rem;
+    font-size: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .input:hover {
