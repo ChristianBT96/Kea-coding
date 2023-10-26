@@ -5,14 +5,15 @@
 let gameBoardArray = [0,0,0,0,0,0,0,0,0];
 let gameModeTwoPlayer = false;
 let gameModeOnePlayer = false;
+let playerOneName = "Player one";
+let playerTwoName = "Player two";
+let playerOneScore = 0;
+let playerTwoScore = 0;
 
 // // // // // // // //
 
 
 // // // // Keep Score // // // //
-
-let playerOneScore = 0;
-let playerTwoScore = 0;
 
 const bothPlayerScores = document.querySelectorAll('.score');
 
@@ -81,6 +82,27 @@ const resetGameBoard = () => {
 // // // // DONE // // // //
 
 
+// // // // BOT (VERY BAD) // // // //
+
+const botFunction = () => {
+    setTimeout(() => {
+    if (gameModeOnePlayer && !playerOneTurn) {
+        let botMove = Math.floor(Math.random() * 9);
+        if (gameBoardArray[botMove] === 0) {
+            gameBoardArray[botMove] = -1;
+            inputs[botMove].innerHTML = "O";
+            playerOneTurn = true;
+            playerTurn.innerHTML = `${playerOne.innerHTML}r turn!`;
+        } else {
+            botFunction();
+        }
+    }
+    }, 1500);
+};
+
+// // // // DONE // // // //
+
+
 // // // // Input Fields // // // //
 
 // 1. Get the input field
@@ -100,12 +122,14 @@ inputs.forEach((input, index) => {
         playerOneTurn = false;
         playerTurn.innerHTML = `${playerTwo.innerHTML}'s turn!`
         gameBoardArray[index] = 1;
-    } else if (!playerOneTurn) {
+    } else if (!playerOneTurn && gameModeTwoPlayer) {
         input.innerHTML = "O";
         playerOneTurn = true;
         playerTurn.innerHTML = `${playerOne.innerHTML}'s turn!`;
         gameBoardArray[index] = -1;
     }
+
+    botFunction();
 
     if (isThereAWinner() === 1) {
         setTimeout(() => {
@@ -170,9 +194,22 @@ const onePlayerButton = document.querySelector('#one-player');
 const twoPlayerButton = document.querySelector('#two-players');
 
 onePlayerButton.addEventListener("click", () => {
-    alert('Only two player mode is available');
+
     introModal.style.display = "none";
-    nameInputModal.style.display = "block";
+    gameModeOnePlayer = true;
+    playerTwoName = "Computer";
+
+    playerOneNameTrack.style.display = "block";
+    playerTwoNameTrack.style.display = "block";
+    playerOneScoreTrack.style.display = "block";
+    playerTwoScoreTrack.style.display = "block";
+
+    playerOne.innerHTML = `${playerOneName}`;
+    playerTwo.innerHTML = `${playerTwoName}`;
+    playerTurn.innerHTML = `${playerOneName}'s turn!`;
+
+    newPlayersButton.style.display = "none";
+
 });
 
 twoPlayerButton.addEventListener("click", () => {
@@ -265,7 +302,22 @@ newPlayersButton.addEventListener("click", () => {
 // // // // DONE // // // //
 
 
+// // // // CHANGE MODE BUTTON // // // //
 
+const changeModeButton = document.querySelector('#change-mode');
+changeModeButton.addEventListener("click", () => {
+    introModal.style.display = "block";
+    gameModeOnePlayer = false;
+    gameModeTwoPlayer = false;
+    playerOneNameTrack.style.display = "none";
+    playerTwoNameTrack.style.display = "none";
+    playerOneScoreTrack.style.display = "none";
+    playerTwoScoreTrack.style.display = "none";
+    newPlayersButton.style.display = "block";
+    resetGameState();
+});
+
+// // // // DONE // // // //
 
 
 
