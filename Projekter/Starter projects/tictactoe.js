@@ -56,6 +56,8 @@ const isThereAWinner = () => {
 // // // // Reset Function // // // //
 
 const resetGameState = () => {
+    playerOneScore = 0;
+    playerTwoScore = 0;
     playerOneScoreBoard.innerHTML = playerOneScore;
     playerTwoScoreBoard.innerHTML = playerTwoScore;
     inputs.forEach((input) => {
@@ -64,10 +66,7 @@ const resetGameState = () => {
     playerOneTurn = true;
     playerTurn.innerHTML = `${playerOne.innerHTML}'s turn!`;
     gameBoardArray = [0,0,0,0,0,0,0,0,0];
-    playerOneScore = 0;
-    playerTwoScore = 0;
-    playerOneScoreBoard.innerHTML = playerOneScore;
-    playerTwoScoreBoard.innerHTML = playerTwoScore;
+
 }
 
 const resetGameBoard = () => {
@@ -155,7 +154,6 @@ inputs.forEach((input, index) => {
 
 
 // // // // // // // //
-
 
 
 // // // // RULES MODAL // // // //
@@ -274,7 +272,7 @@ startButton.addEventListener("click", () => {
 //
 // const winnerAnnouncementModalText = () => {
 //     winnerAnnouncement.style.display = "block";
-//     winnerAnnouncement.innerHTML = `Congratulations ${playerOneName} wins!`;
+//     winnerAnnouncement.innerHTML = `Congratulations ${playerOneName} scored a point!`;
 // }
 
 // // // // DONE // // // //
