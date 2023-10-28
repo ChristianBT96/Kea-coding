@@ -262,21 +262,6 @@ startButton.addEventListener("click", () => {
 
 });
 
-// // // // DONE // // // //
-
-
-// // // // WINNER MODAL // // // //
-
-// const winnerModal = document.querySelector('.winner-modal');
-// const winnerAnnouncement = document.querySelector('.winner-announcement');
-//
-// const winnerAnnouncementModalText = () => {
-//     winnerAnnouncement.style.display = "block";
-//     winnerAnnouncement.innerHTML = `Congratulations ${playerOneName} scored a point!`;
-// }
-
-// // // // DONE // // // //
-
 
 // // // // RESET BUTTON // // // //
 
