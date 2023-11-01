@@ -1,6 +1,6 @@
 
 
-// Exercise 1
+// Exercise 3 - level 3
 // Create two arrays with the following values: [5,6,3,4,6,34,5,5] [5,5,5,66,7,3,1,1,1,4]
 // Concatenate the arrays and sort the concatenated array
 // Ensure the array has been sorted by logging the results
@@ -14,7 +14,7 @@ const joinedArray = array1.concat(array2)
 console.log(joinedArray)
 console.log(joinedArray.sort(sortFunctionAsc))
 
-// Exercise 2
+// Exercise 2 - level 2
 // //Create the initial javascript like this:
 // let number = "22";
 // let number2 = "22";
@@ -52,7 +52,7 @@ console.log(total2)
 
 // Exercise B
 
-// Exercise 1
+// Exercise 3 - level 3
 // Create a function that takes a string and then logs that string out
 // someFunctionName("hello"); // logs out hello
 // someFunctionName("abcde"); // logs out abcde
@@ -61,14 +61,14 @@ const logString = function (string) {
 }
 logString("Hello")
 
-// Exercise 1.1
+// Exercise 3 - level 3.1
 // Create a function that adds two numbers together
 
 const addTwo = function (a,b) {console.log(a + b)}
 
 addTwo(45,30)
 
-// Exercise 2
+// Exercise 2 - level 2
 // Create a function that takes a name and returns true if the first character is the character a otherwise false
 
 const startsWithA = function (name) {

@@ -36,7 +36,7 @@ const ctx = document.querySelector('#chart').getContext('2d');
 // });
 
 
-// 📝 Exercise 1 - level 1
+// 📝 Exercise 3 - level 3 - level 1
 
 // const chart = new Chart(ctx, {
 //     type: "line",
@@ -58,7 +58,7 @@ const ctx = document.querySelector('#chart').getContext('2d');
 //     }
 // });
 
-// 📝 Exercise 2 - level 1
+// 📝 Exercise 2 - level 2 - level 1
 
 // const chart = new Chart(ctx, {
 //     type: "bar",

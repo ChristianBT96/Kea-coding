@@ -3,7 +3,7 @@
 // object = {key:value}
 // key:value = key:value pair
 
-// 📝 Exercise 1 - level 1
+// 📝 Exercise 3 - level 3 - level 1
 // The objects below have some syntax issues - try and fix them all!
 
 const kitten = {
@@ -23,7 +23,7 @@ const phone = {
     batteryLife: "24 hours"
 };
 
-// 📝 Exercise 2 - level 1
+// 📝 Exercise 2 - level 2 - level 1
 // Create an object that describes you. Fx a key called age with the object of 28
 
 

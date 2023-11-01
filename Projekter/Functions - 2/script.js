@@ -2,7 +2,7 @@
 
 // Exercises A
 
-// 📝 Exercise 1
+// 📝 Exercise 3 - level 3
 // Write a function that takes three numbers as parameter, sums the integers and returns the result.
 // The function should be defined as an arrow function
 // The functions should return the result
@@ -12,7 +12,7 @@ const sumThreeNumbers = (a,b,c) => a+b+c
 console.log(sumThreeNumbers(1,4,5))
 
 
-// 📝 Exercise 2
+// 📝 Exercise 2 - level 2
 // Write a function that takes three numbers as parameter, identifies the largest number and returns the result.
 // The function should be defined as an arrow function
 // The functions should not return anything (void function) - it should print the result to the HTML page using document.write()
@@ -99,7 +99,7 @@ console.log("The longest named country is " + longesCountryName(countryArray))
 
 // Exercises B
 
-// 📝Exercise 1
+// 📝Exercise 3 - level 3
 // Write a function that iterates through an array of strings and returns the average amount of letters pr. word
 // The function should use the foreach syntax loop
 
@@ -112,7 +112,7 @@ strings.forEach((string) => {
 
 console.log(lettersTotal/strings.length)
 
-// 📝Exercise 2
+// 📝Exercise 2 - level 2
 // Write a function that filters all names above the length of 5 letters.
 // The function should use the filter syntax
 const firstNames = [
