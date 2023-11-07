@@ -107,7 +107,7 @@ fetch('https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0a
     .then(movies => {
         const h1 = document.createElement('h1');
         h1.innerText = `${movies.length} movies fetched`;
-        document.body.appendChild(h1);
+        document.body.append(h1);
     });
 
 // 📝 Exercise 3 - level 1
@@ -124,7 +124,7 @@ fetch('https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0a
         const movie0Title = movies[0].title
         const movie0Rating = movies[0].rating
         const movie0Year = movies[0].year
-        const movie0Duration = movies[0].duration
+        const movie0Duration = movies[0].running_times
         const movie0DurationMinutes = parseInt( movie0Duration) / 60
         const movie0Votes = movies[0].votes
 
@@ -132,7 +132,7 @@ fetch('https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0a
 
         const h2 = document.createElement('h2');
         h2.innerText = movie0String;
-        document.body.appendChild(h2);
+        document.body.append(h2);
 
         console.log(typeof movie0Duration)
     });
@@ -147,12 +147,12 @@ fetch('https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0a
 //         console.log("Exercise 4 - level 2 (ul and li)")
 //
 //         const ul = document.createElement('ul');
-//         document.body.appendChild(ul);
+//         document.body.append(ul);
 //
 //         movies.forEach(movie => {
 //             const li = document.createElement('li');
 //             li.innerText = movie.title;
-//             ul.appendChild(li);
+//             ul.append(li);
 //         });
 //     });
 
@@ -168,13 +168,13 @@ NMButton.addEventListener("click", () => {
         .then(response => response.json())
         .then(movies => {
             const ul = document.createElement('ul');
-            document.body.appendChild(ul);
+            document.body.append(ul);
 
             movies.forEach(movie => {
                 if (movie.year > 2014) {
                     const li = document.createElement('li');
                     li.innerText = movie.title;
-                    ul.appendChild(li);
+                    ul.append(li);
                 }
             });
 
@@ -184,10 +184,39 @@ NMButton.addEventListener("click", () => {
 // 📝 Exercise 6 - level 3
 // Create an input element where people can search for a movie. While the user writes something the movies should be updated!
 
+const searchInput = document.querySelector(".search-input")
+const value = document.querySelector("#value")
+
+searchInput.addEventListener("input", () => {
+    const ul = document.createElement("ul")
+    document.body.append(ul);
+    let textInput = value.value
+
+    if (ul.hasChildNodes()) {
+        ul.innerText = ""
+        console.log(ul.hasChildNodes())
+    } else {
+        console.log(ul.hasChildNodes())
+        fetch('https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0ae8d0a4/raw/02d8bc9ec9a73e463b13c44df77a87255def5ab9/movies.json')
+            .then(response => response.json())
+            .then(movies => {
+                movies.forEach(movie => {
+                    if (movie.title.toLowerCase().includes(textInput.toLowerCase())) {
+                        const li = document.createElement('li');
+                        li.innerText = movie.title;
+                        ul.append(li);
+                    }
+                });
+            });
+    }
+
+});
+
 
 // 📝 Exercise 7 - level 3
 // Create an interface where users can filter the movies in different ways. Fx searching for a movie. Indicating the rating. Only showing movies that are longer or shorter that a specific time.
 // Search for inspiration from fx https://www.boliga.dk/
+
 
 
 // 📝 Exercise 8
@@ -195,7 +224,7 @@ NMButton.addEventListener("click", () => {
 
 
 // 📝 Exercise 9
-// Your feature here. What feature would you like to add to the movie datbase?
+// Your feature here. What feature would you like to add to the movie database?
 
 
 

@@ -1,0 +1,21 @@
+[
+{
+  "orderName": "John Doe",
+  "orderId": 1,
+  "price": 100,
+  "listOfDrinks": ["Coke", "Fanta", "Sprite"],
+  "orderExtras": {
+    "ketchup": true
+  }},
+{
+  "orderName": "Jane Doe",
+  "orderId": 2,
+  "price": 200,
+  "listOfDrinks": ["Coke", "Fanta", "Sprite"],
+  "orderExtras": {
+    "ketchup": true,
+    "mayo": true,
+    "mustard": true
+  }
+}
+]
